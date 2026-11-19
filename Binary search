@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main() {
+    int n, target, low, high, mid, found = 0;
+
+    // 1. Get the size of the array
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    // 2. Input sorted array elements
+    printf("Enter %d integers in ascending (sorted) order:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // 3. Get the element to search for
+    printf("Enter the number to search for: ");
+    scanf("%d", &target);
+
+    // 4. Perform binary search
+    low = 0;
+    high = n - 1;
+
+    while (low <= high) {
+        mid = low + (high - low) / 2; // Prevents integer overflow
+
+        if (arr[mid] == target) {
+            printf("Element %d found at index %d (position %d).\n", target, mid, mid + 1);
+            found = 1;
+            break;
+        } 
+        else if (arr[mid] < target) {
+            low = mid + 1; // Search the right half
+        } 
+        else {
+            high = mid - 1; // Search the left half
+        }
+    }
+
+    // 5. Handle the case where the element is not in the array
+    if (!found) {
+        printf("Element %d is not present in the array.\n", target);
+    }
+
+    return 0;
+}
