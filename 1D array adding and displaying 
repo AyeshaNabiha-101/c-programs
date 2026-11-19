@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int n, sum = 0;
+
+    // 1. Get the size of the 1D array
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    // 2. Add (input) elements into the 1D array
+    printf("Enter %d integers:\n", n);
+    for (int i = 0; i < n; i++) {
+        printf("Element [%d]: ", i);
+        scanf("%d", &arr[i]);
+        sum += arr[i]; // Add each element to the total sum
+    }
+
+    // 3. Display the elements of the 1D array
+    printf("\nElements in the array are: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    // 4. Display the total sum of the elements
+    printf("\nSum of all elements: %d\n", sum);
+
+    return 0;
+}
