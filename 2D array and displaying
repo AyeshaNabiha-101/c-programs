@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    int rows, cols, sum = 0;
+
+    // 1. Get dimensions of the 2D array
+    printf("Enter the number of rows and columns: ");
+    scanf("%d %d", &rows, &cols);
+
+    int arr[rows][cols];
+
+    // 2. Add (input) elements into the 2D array
+    printf("\nEnter elements for the %dx%d array:\n", rows, cols);
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("Element [%d][%d]: ", i, j);
+            scanf("%d", &arr[i][j]);
+            sum += arr[i][j]; // Add each element to the total sum
+        }
+    }
+
+    // 3. Display the elements in a grid format
+    printf("\nThe 2D array is:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d\t", arr[i][j]);
+        }
+        printf("\n"); // Move to the next line after printing each row
+    }
+
+    // 4. Display the total sum of all elements
+    printf("\nSum of all elements: %d\n", sum);
+
+    return 0;
+}
